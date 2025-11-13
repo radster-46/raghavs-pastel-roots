@@ -51,68 +51,68 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-24 pb-16 px-4 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-12 fade-in-section">
             <div className="relative lg:w-1/2 flex justify-center">
-              <div className="relative w-80 h-96 overflow-hidden shadow-2xl animate-float" 
+              <div className="relative w-80 h-96 overflow-hidden shadow-float animate-float" 
                    style={{
                      clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
                      background: "linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1))"
                    }}>
                 <img src={profilePhoto} alt="Raghav Bhutada" className="w-full h-full object-cover scale-110" />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-display font-bold text-2xl shadow-xl transform rotate-6">
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-float transform rotate-6">
                 RB
               </div>
             </div>
             
             <div className="lg:w-1/2 text-center lg:text-left">
-              <h1 className="text-6xl md:text-7xl font-display font-bold text-foreground mb-6 leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Raghav Bhutada
               </h1>
               
-              <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 I'm Raghav, rooted in tradition and excited about new beginnings. I value family, culture, and meaningful connections. I love to travel and play badminton.
               </p>
             </div>
           </div>
 
           {/* Bio Card */}
-          <Card className="fade-in-section p-8 md:p-10 bg-card/50 backdrop-blur-sm card-shadow border border-primary/10 rounded-3xl">
-            <h2 className="text-3xl font-display font-bold mb-8 text-center text-primary">Personal Details</h2>
+          <Card className="fade-in-section p-6 md:p-8 bg-card border border-border shadow-soft rounded-xl">
+            <h2 className="text-2xl font-bold mb-6 text-center text-foreground">Personal Details</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
               {bioData.map((item, index) => (
-                <div key={index} className="flex items-center gap-4 p-5 bg-gradient-to-br from-mint/10 to-sky-blue/10 rounded-2xl border border-primary/5 hover:border-primary/20 transition-all hover:scale-105">
-                  <div className="p-3 bg-primary/10 rounded-xl">
-                    <item.icon className="w-6 h-6 text-primary" />
+                <div key={index} className="flex items-center gap-3 p-4 bg-muted/50 rounded-lg border border-border hover:border-primary/40 transition-all">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">{item.label}</p>
-                    <p className="font-semibold text-lg text-foreground">{item.value}</p>
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{item.label}</p>
+                    <p className="font-semibold text-foreground">{item.value}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="space-y-4">
-              <div className="p-4 bg-lavender/20 rounded-2xl">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+            <div className="space-y-3">
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-sm text-muted-foreground">Temporary Address</p>
-                    <p className="font-medium text-foreground">Shri Krishna Society, Vadban Rd, Mundhwa, Pune</p>
+                    <p className="text-xs text-muted-foreground">Temporary Address</p>
+                    <p className="font-medium text-sm text-foreground">Shri Krishna Society, Vadban Rd, Mundhwa, Pune</p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 bg-sky-blue/20 rounded-2xl">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-sm text-muted-foreground">Permanent Address</p>
-                    <p className="font-medium text-foreground">90/A, Ganesh Nagar, Nanded</p>
+                    <p className="text-xs text-muted-foreground">Permanent Address</p>
+                    <p className="font-medium text-sm text-foreground">90/A, Ganesh Nagar, Nanded</p>
                   </div>
                 </div>
               </div>
@@ -122,37 +122,38 @@ const Index = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-background via-mint/5 to-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto max-w-5xl relative z-10">
-          <h2 className="text-5xl font-display font-bold text-center mb-16 text-foreground fade-in-section">
+      <section className="py-20 px-4 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+        <div className="container mx-auto max-w-4xl relative">
+          <h2 className="text-4xl font-bold text-center mb-4 text-foreground fade-in-section">
             My Journey
           </h2>
+          <p className="text-center text-muted-foreground mb-16 fade-in-section">WOW...!!! WHAT A JOURNEY SO FAR...!!!</p>
           
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-sky-blue hidden lg:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-border"></div>
             
-            <div className="space-y-12">
+            <div className="space-y-0">
               {timeline.map((item, index) => (
-                <div key={index} className={`fade-in-section flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                  {/* Year badge */}
-                  <div className="lg:w-1/2 flex justify-center lg:justify-end">
-                    <div className={`relative ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                      <div className={`inline-block px-8 py-3 rounded-2xl bg-gradient-to-br from-${item.color} to-${item.color}/50 font-display font-bold text-xl text-foreground shadow-lg border-2 border-white/50`}>
-                        {item.year}
-                      </div>
-                    </div>
+                <div key={index} className={`fade-in-section relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                  {/* Content side */}
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
+                    <Card className="inline-block p-4 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+                      <h3 className="font-semibold text-foreground mb-1">{item.event}</h3>
+                      <p className="text-sm text-muted-foreground">{item.year}</p>
+                    </Card>
                   </div>
                   
                   {/* Timeline dot */}
-                  <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background shadow-lg z-10"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-2 border-background z-10"></div>
                   
-                  {/* Event card */}
-                  <div className="lg:w-1/2 flex justify-center lg:justify-start">
-                    <Card className={`p-6 bg-card/80 backdrop-blur-sm card-shadow border-2 border-primary/10 rounded-2xl hover:border-primary/30 transition-all hover:scale-105 max-w-md ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}>
-                      <p className="text-lg font-medium text-foreground leading-relaxed">{item.event}</p>
-                    </Card>
+                  {/* Date side */}
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
+                    <div className="inline-block">
+                      <div className="text-sm font-medium text-muted-foreground">{item.year.includes('-') ? item.year.split('-')[0] : item.year}</div>
+                      <div className="text-2xl font-bold text-foreground">{item.year.includes('-') ? item.year.split('-')[0].slice(-2) : item.year.slice(-2)}</div>
+                      <div className="text-xs text-muted-foreground">{item.year.includes('-') ? item.year.split('-')[1] : new Date().getFullYear()}</div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -162,142 +163,142 @@ const Index = () => {
       </section>
 
       {/* Family Details Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-lavender/10 to-background">
+      <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-5xl font-display font-bold text-center mb-16 text-foreground fade-in-section">Family Heritage</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-foreground fade-in-section">Family Heritage</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
             {/* Ancestry */}
-            <Card className="fade-in-section p-8 bg-gradient-to-br from-coral/10 to-coral/5 border border-coral/20 rounded-3xl card-shadow">
-              <h3 className="text-2xl font-display font-bold mb-6 text-primary flex items-center gap-3">
-                <span className="text-3xl">🏛️</span> Ancestry
+            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                <span className="text-xl">🏛️</span> Ancestry
               </h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="font-semibold text-foreground/80 min-w-[80px]">Sakha:</span>
-                  <span className="text-foreground">Bhutada & Jaju</span>
+              <div className="space-y-2 text-sm">
+                <div>
+                  <span className="font-semibold text-foreground">Sakha:</span>
+                  <span className="text-muted-foreground ml-1">Bhutada & Jaju</span>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl space-y-2">
-                  <p className="text-sm font-semibold text-primary uppercase tracking-wide">Grandparents</p>
+                <div className="bg-muted/50 p-3 rounded-lg space-y-1">
+                  <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
                   <p className="text-foreground"><strong>Grandfather:</strong> Bhutada Hanumandas Harigovinddas</p>
-                  <p className="text-muted-foreground text-sm">📞 7588237435</p>
+                  <p className="text-muted-foreground text-xs">📞 7588237435</p>
                   <p className="text-foreground"><strong>Grandmother:</strong> Late. Pushpabai Bhutada</p>
                 </div>
               </div>
             </Card>
 
             {/* Parents */}
-            <Card className="fade-in-section p-8 bg-gradient-to-br from-mint/10 to-mint/5 border border-mint/20 rounded-3xl card-shadow">
-              <h3 className="text-2xl font-display font-bold mb-6 text-primary flex items-center gap-3">
-                <span className="text-3xl">👨‍👩‍👦</span> Parents
+            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                <span className="text-xl">👨‍👩‍👦</span> Parents
               </h3>
-              <div className="space-y-4">
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-foreground font-semibold text-lg">Bhutada Murlidhar Hanumandas</p>
-                  <p className="text-muted-foreground">Business, Nanded</p>
-                  <p className="text-primary text-sm mt-1">📞 9763131349</p>
+              <div className="space-y-2 text-sm">
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-foreground font-semibold">Bhutada Murlidhar Hanumandas</p>
+                  <p className="text-muted-foreground text-xs">Business, Nanded</p>
+                  <p className="text-primary text-xs mt-1">📞 9763131349</p>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-foreground font-semibold text-lg">Bhutada Sangita Murlidhar</p>
-                  <p className="text-muted-foreground">Housewife</p>
-                  <p className="text-primary text-sm mt-1">📞 9405377149</p>
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-foreground font-semibold">Bhutada Sangita Murlidhar</p>
+                  <p className="text-muted-foreground text-xs">Housewife</p>
+                  <p className="text-primary text-xs mt-1">📞 9405377149</p>
                 </div>
               </div>
             </Card>
 
             {/* Uncles */}
-            <Card className="fade-in-section p-8 bg-gradient-to-br from-sky-blue/10 to-sky-blue/5 border border-sky-blue/20 rounded-3xl card-shadow">
-              <h3 className="text-2xl font-display font-bold mb-6 text-primary flex items-center gap-3">
-                <span className="text-3xl">👔</span> Uncles
+            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                <span className="text-xl">👔</span> Uncles
               </h3>
-              <div className="space-y-3">
-                <div className="bg-white/50 p-3 rounded-xl">
+              <div className="space-y-2 text-sm">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada Nandkishor Hanumandas</p>
-                  <p className="text-sm text-muted-foreground">Business, Ahmedpur • 9423350974</p>
+                  <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9423350974</p>
                 </div>
-                <div className="bg-white/50 p-3 rounded-xl">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada Ghanshyam Hanumandas</p>
-                  <p className="text-sm text-muted-foreground">Business, Ahmedpur • 9850614918</p>
+                  <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9850614918</p>
                 </div>
-                <div className="bg-white/50 p-3 rounded-xl">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada Radheshyam Hanumandas</p>
-                  <p className="text-sm text-muted-foreground">Business, Nanded • 9422170658</p>
+                  <p className="text-xs text-muted-foreground">Business, Nanded • 9422170658</p>
                 </div>
               </div>
             </Card>
 
             {/* Siblings */}
-            <Card className="fade-in-section p-8 bg-gradient-to-br from-lavender/10 to-lavender/5 border border-lavender/20 rounded-3xl card-shadow">
-              <h3 className="text-2xl font-display font-bold mb-6 text-primary flex items-center gap-3">
-                <span className="text-3xl">🤝</span> Siblings
+            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                <span className="text-xl">🤝</span> Siblings
               </h3>
-              <div className="space-y-3">
-                <div className="bg-white/50 p-3 rounded-xl">
+              <div className="space-y-2 text-sm">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada MayurDhwaj Murlidhar</p>
-                  <p className="text-sm text-muted-foreground">Business</p>
+                  <p className="text-xs text-muted-foreground">Business</p>
                 </div>
-                <div className="bg-white/50 p-3 rounded-xl">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada Krishna Nandkishor</p>
-                  <p className="text-sm text-muted-foreground">Software Engineer</p>
+                  <p className="text-xs text-muted-foreground">Software Engineer</p>
                 </div>
-                <div className="bg-white/50 p-3 rounded-xl">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada Kanhya Ghanshyam</p>
-                  <p className="text-sm text-muted-foreground">Business</p>
+                  <p className="text-xs text-muted-foreground">Business</p>
                 </div>
-                <div className="bg-white/50 p-3 rounded-xl">
+                <div className="bg-muted/50 p-2 rounded-lg">
                   <p className="text-foreground font-medium">Bhutada Pavan Ghanshyam</p>
-                  <p className="text-sm text-muted-foreground">B.Com</p>
+                  <p className="text-xs text-muted-foreground">B.Com</p>
                 </div>
               </div>
             </Card>
 
             {/* Nanihal */}
-            <Card className="fade-in-section p-8 bg-gradient-to-br from-soft-yellow/10 to-soft-yellow/5 border border-soft-yellow/20 rounded-3xl card-shadow">
-              <h3 className="text-2xl font-display font-bold mb-6 text-primary flex items-center gap-3">
-                <span className="text-3xl">🏠</span> Maternal Family
+            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                <span className="text-xl">🏠</span> Maternal Family
               </h3>
-              <div className="space-y-4">
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Nanihal</p>
+              <div className="space-y-2 text-sm">
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-xs font-semibold text-primary uppercase mb-1">Nanihal</p>
                   <p className="text-foreground font-semibold">Shri. Ratanlalji Shrinivasji Jaju</p>
-                  <p className="text-muted-foreground text-sm">Pune • 9702057777</p>
+                  <p className="text-muted-foreground text-xs">Pune • 9702057777</p>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Maternal Uncle</p>
-                  <p className="text-foreground">Shri. Shrinivas Ratanlalji Jaju</p>
+                <div className="bg-muted/50 p-2 rounded-lg">
+                  <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Uncle</p>
+                  <p className="text-foreground text-xs">Shri. Shrinivas Ratanlalji Jaju</p>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Maternal Aunts</p>
-                  <div className="space-y-2 text-sm">
-                    <p className="text-foreground">Sau. Sunanda Dhananjayji Lahoti, Shambhaji Nagar</p>
-                    <p className="text-foreground">Sau. Anuradha JayPrakashji Sarda, Bangalore</p>
-                    <p className="text-foreground">Sau. Archana Murlimohanji Rathi, Nanded</p>
+                <div className="bg-muted/50 p-2 rounded-lg">
+                  <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Aunts</p>
+                  <div className="space-y-1 text-xs text-foreground">
+                    <p>Sau. Sunanda Dhananjayji Lahoti, Shambhaji Nagar</p>
+                    <p>Sau. Anuradha JayPrakashji Sarda, Bangalore</p>
+                    <p>Sau. Archana Murlimohanji Rathi, Nanded</p>
                   </div>
                 </div>
               </div>
             </Card>
 
             {/* Family Firms */}
-            <Card className="fade-in-section p-8 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-3xl card-shadow">
-              <h3 className="text-2xl font-display font-bold mb-6 text-primary flex items-center gap-3">
-                <span className="text-3xl">🏢</span> Family Firms
+            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                <span className="text-xl">🏢</span> Family Firms
               </h3>
-              <div className="space-y-3">
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-foreground font-semibold text-lg">CONVOLT SYSTEMS</p>
-                  <p className="text-sm text-muted-foreground">Shivajinagar, Nanded</p>
+              <div className="space-y-2 text-sm">
+                <div className="bg-muted/50 p-2 rounded-lg">
+                  <p className="text-foreground font-semibold">CONVOLT SYSTEMS</p>
+                  <p className="text-xs text-muted-foreground">Shivajinagar, Nanded</p>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-foreground font-semibold text-lg">HP World</p>
-                  <p className="text-sm text-muted-foreground">Parbhani</p>
+                <div className="bg-muted/50 p-2 rounded-lg">
+                  <p className="text-foreground font-semibold">HP World</p>
+                  <p className="text-xs text-muted-foreground">Parbhani</p>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-foreground font-semibold text-lg">Mayur General Stores</p>
-                  <p className="text-sm text-muted-foreground">Ahmedpur</p>
+                <div className="bg-muted/50 p-2 rounded-lg">
+                  <p className="text-foreground font-semibold">Mayur General Stores</p>
+                  <p className="text-xs text-muted-foreground">Ahmedpur</p>
                 </div>
-                <div className="bg-white/50 p-4 rounded-xl">
-                  <p className="text-foreground font-semibold text-lg">Pushpak Agencies</p>
-                  <p className="text-sm text-muted-foreground">Ahmedpur</p>
+                <div className="bg-muted/50 p-2 rounded-lg">
+                  <p className="text-foreground font-semibold">Pushpak Agencies</p>
+                  <p className="text-xs text-muted-foreground">Ahmedpur</p>
                 </div>
               </div>
             </Card>
