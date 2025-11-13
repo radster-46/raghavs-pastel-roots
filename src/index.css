@@ -8,56 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 40 100% 97%;
-    --foreground: 0 0% 20%;
+    --background: 220 25% 97%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Vibrant Coral Pink */
-    --primary: 358 100% 72%;
+    /* Modern Blue Primary */
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
-    /* Soft Mint Green */
-    --secondary: 157 48% 80%;
-    --secondary-foreground: 0 0% 20%;
+    /* Soft Green Secondary */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Lavender accent */
-    --accent: 280 35% 82%;
-    --accent-foreground: 0 0% 20%;
+    /* Purple accent */
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 95%;
-    --ring: 358 100% 72%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
     
-    /* Custom pastel colors */
-    --coral: 358 100% 72%;
-    --mint: 157 48% 80%;
-    --sky-blue: 202 100% 85%;
-    --lavender: 280 35% 82%;
-    --soft-yellow: 54 100% 85%;
+    /* Modern color palette */
+    --coral: 14 100% 63%;
+    --mint: 142 76% 36%;
+    --sky-blue: 199 89% 48%;
+    --lavender: 262 83% 58%;
+    --soft-yellow: 45 93% 47%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(358 100% 85%), hsl(280 35% 90%));
-    --gradient-section: linear-gradient(180deg, hsl(157 48% 95%), hsl(202 100% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --gradient-section: linear-gradient(180deg, hsl(220 25% 97%), hsl(220 20% 95%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 25% 98%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-float: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-soft: 0 2px 15px rgba(0, 0, 0, 0.05);
+    --shadow-float: 0 8px 25px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
     
     /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
