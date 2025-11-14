@@ -14,11 +14,11 @@ const Index = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
+            entry.target.classList.add("animate-slide-up");
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     const elements = document.querySelectorAll(".fade-in-section");
@@ -52,13 +52,13 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 px-4 relative overflow-hidden" style={{
+      <section className="pt-28 pb-12 px-3 sm:px-4 relative overflow-hidden" style={{
         background: 'linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.08), hsl(var(--primary) / 0.05))',
         backgroundSize: '200% 200%',
         animation: 'gradient-shift 15s ease infinite'
       }}>
         <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col lg:flex-row items-center gap-12 mb-12 fade-in-section">
+          <div className="flex flex-col lg:flex-row items-center gap-8 mb-8 fade-in-section">
             <div className="relative lg:w-1/2 flex justify-center">
               <div className="relative w-80 h-96 overflow-hidden shadow-float animate-float" 
                    style={{
@@ -84,12 +84,12 @@ const Index = () => {
           </div>
 
           {/* Bio Card */}
-          <Card className="fade-in-section p-6 md:p-8 bg-card border border-border shadow-soft rounded-xl">
+          <Card className="fade-in-section p-5 md:p-8 bg-card border border-border shadow-elegant rounded-2xl">
             <h2 className="text-2xl font-bold mb-6 text-center text-foreground">Personal Details</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               {bioData.map((item, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 bg-muted/50 rounded-lg border border-border hover:border-primary/40 transition-all">
+                <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-2xl border border-border hover:border-primary/40 hover:shadow-soft transition-all duration-300">
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
@@ -101,8 +101,8 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="space-y-3">
-              <div className="p-3 bg-muted/50 rounded-lg">
+            <div className="space-y-2">
+              <div className="p-3 bg-muted/50 rounded-2xl">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <div>
@@ -112,7 +112,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="p-3 bg-muted/50 rounded-lg">
+              <div className="p-3 bg-muted/50 rounded-2xl">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <div>
@@ -126,8 +126,11 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
+
       {/* Timeline Section */}
-      <section className="py-20 px-4 relative overflow-hidden" style={{
+      <section className="py-16 px-3 sm:px-4 relative overflow-hidden" style={{
         background: 'linear-gradient(180deg, hsl(var(--muted) / 0.3), hsl(var(--accent) / 0.05), hsl(var(--muted) / 0.2))'
       }}>
         <div className="container mx-auto max-w-4xl relative">
@@ -143,8 +146,8 @@ const Index = () => {
               {timeline.map((item, index) => (
                 <div key={index} className={`fade-in-section relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   {/* Content side */}
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
-                    <Card className="inline-block p-4 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                    <Card className="inline-block p-3 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
                       <h3 className="font-semibold text-foreground mb-1">{item.event}</h3>
                       <p className="text-sm text-muted-foreground">{item.year}</p>
                     </Card>
@@ -154,7 +157,7 @@ const Index = () => {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-2 border-background z-10"></div>
                   
                   {/* Date side */}
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8 text-left' : 'pr-8 text-right'}`}>
                     <div className="inline-block">
                       <div className="text-sm font-medium text-muted-foreground">{item.year.includes('-') ? item.year.split('-')[0] : item.year}</div>
                       <div className="text-2xl font-bold text-foreground">{item.year.includes('-') ? item.year.split('-')[0].slice(-2) : item.year.slice(-2)}</div>
@@ -168,16 +171,19 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
+
       {/* Family Details Section */}
-      <section className="py-20 px-2 sm:px-4 relative" style={{
+      <section className="py-16 px-3 sm:px-4 relative" style={{
         background: 'linear-gradient(135deg, hsl(var(--background)), hsl(var(--primary) / 0.03), hsl(var(--background)))'
       }}>
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground fade-in-section">Family Heritage</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 text-foreground fade-in-section">Family Heritage</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {/* Ancestry */}
-            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+            <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
                 <span className="text-xl">🏛️</span> Ancestry
               </h3>
@@ -186,7 +192,7 @@ const Index = () => {
                   <span className="font-semibold text-foreground">Sakha:</span>
                   <span className="text-muted-foreground ml-1">Bhutada & Jaju</span>
                 </div>
-                <div className="bg-muted/50 p-3 rounded-lg space-y-1">
+                <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
                   <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
                   <p className="text-foreground"><strong>Grandfather:</strong> Bhutada Hanumandas Harigovinddas</p>
                   <p className="text-muted-foreground text-xs">📞 7588237435</p>
@@ -196,17 +202,17 @@ const Index = () => {
             </Card>
 
             {/* Parents */}
-            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+            <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
                 <span className="text-xl">👨‍👩‍👦</span> Parents
               </h3>
               <div className="space-y-2 text-sm">
-                <div className="bg-muted/50 p-3 rounded-lg">
+                <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-foreground font-semibold">Bhutada Murlidhar Hanumandas</p>
                   <p className="text-muted-foreground text-xs">Business, Nanded</p>
                   <p className="text-primary text-xs mt-1">📞 9763131349</p>
                 </div>
-                <div className="bg-muted/50 p-3 rounded-lg">
+                <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-foreground font-semibold">Bhutada Sangita Murlidhar</p>
                   <p className="text-muted-foreground text-xs">Housewife</p>
                   <p className="text-primary text-xs mt-1">📞 9405377149</p>
@@ -215,20 +221,20 @@ const Index = () => {
             </Card>
 
             {/* Uncles */}
-            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+            <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
                 <span className="text-xl">👔</span> Uncles
               </h3>
               <div className="space-y-2 text-sm">
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada Nandkishor Hanumandas</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9423350974</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada Ghanshyam Hanumandas</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9850614918</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada Radheshyam Hanumandas</p>
                   <p className="text-xs text-muted-foreground">Business, Nanded • 9422170658</p>
                 </div>
@@ -236,24 +242,24 @@ const Index = () => {
             </Card>
 
             {/* Siblings */}
-            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+            <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
                 <span className="text-xl">🤝</span> Siblings
               </h3>
               <div className="space-y-2 text-sm">
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada MayurDhwaj Murlidhar</p>
                   <p className="text-xs text-muted-foreground">Business</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada Krishna Nandkishor</p>
                   <p className="text-xs text-muted-foreground">Software Engineer</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada Kanhya Ghanshyam</p>
                   <p className="text-xs text-muted-foreground">Business</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Bhutada Pavan Ghanshyam</p>
                   <p className="text-xs text-muted-foreground">B.Com</p>
                 </div>
@@ -261,21 +267,21 @@ const Index = () => {
             </Card>
 
             {/* Nanihal */}
-            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+            <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
                 <span className="text-xl">🏠</span> Maternal Family
               </h3>
               <div className="space-y-2 text-sm">
-                <div className="bg-muted/50 p-3 rounded-lg">
+                <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Nanihal</p>
                   <p className="text-foreground font-semibold">Shri. Ratanlalji Shrinivasji Jaju</p>
                   <p className="text-muted-foreground text-xs">Pune • 9702057777</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Uncle</p>
                   <p className="text-foreground text-xs">Shri. Shrinivas Ratanlalji Jaju</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Aunts</p>
                   <div className="space-y-1 text-xs text-foreground">
                     <p>Sau. Sunanda Dhananjayji Lahoti, Shambhaji Nagar</p>
@@ -287,24 +293,24 @@ const Index = () => {
             </Card>
 
             {/* Family Firms */}
-            <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
+            <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
                 <span className="text-xl">🏢</span> Family Firms
               </h3>
               <div className="space-y-2 text-sm">
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-semibold">CONVOLT SYSTEMS</p>
                   <p className="text-xs text-muted-foreground">Shivajinagar, Nanded</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-semibold">HP World</p>
                   <p className="text-xs text-muted-foreground">Parbhani</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-semibold">Mayur General Stores</p>
                   <p className="text-xs text-muted-foreground">Ahmedpur</p>
                 </div>
-                <div className="bg-muted/50 p-2 rounded-lg">
+                <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-semibold">Pushpak Agencies</p>
                   <p className="text-xs text-muted-foreground">Ahmedpur</p>
                 </div>
@@ -314,14 +320,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
+
       {/* Kundli Section */}
-      <section className="py-20 px-4 relative" style={{
+      <section className="py-16 px-3 sm:px-4 relative" style={{
         background: 'linear-gradient(180deg, hsl(var(--accent) / 0.08), hsl(var(--primary) / 0.05))'
       }}>
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-5xl font-display font-bold text-center mb-16 text-foreground fade-in-section">Kundli</h2>
+          <h2 className="text-5xl font-display font-bold text-center mb-8 text-foreground fade-in-section">Kundli</h2>
           
-          <Card className="fade-in-section p-8 md:p-12 bg-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-3xl card-shadow hover:border-primary/20 transition-all">
+          <Card className="fade-in-section p-6 md:p-10 bg-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-2xl shadow-elegant hover:border-primary/20 transition-all duration-300">
             <div className="max-w-lg mx-auto">
               <img 
                 src={kundliChart} 
@@ -333,16 +342,19 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
+
       {/* Contact Section */}
-      <section className="py-20 px-4 mb-8 relative" style={{
+      <section className="py-16 px-3 sm:px-4 mb-8 relative" style={{
         background: 'linear-gradient(135deg, hsl(var(--muted) / 0.2), hsl(var(--background)), hsl(var(--accent) / 0.05))'
       }}>
         <div className="container mx-auto max-w-2xl">
-          <h2 className="text-5xl font-display font-bold text-center mb-12 text-foreground fade-in-section">Get in Touch</h2>
+          <h2 className="text-5xl font-display font-bold text-center mb-8 text-foreground fade-in-section">Get in Touch</h2>
           
-          <Card className="fade-in-section p-5 md:p-6 bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-3xl card-shadow">
-            <div className="space-y-4">
-              <a href="tel:+919876543210" className="flex items-center gap-4 p-4 bg-gradient-to-br from-mint/20 to-mint/10 rounded-2xl hover:scale-105 transition-all border border-mint/20 hover:border-mint/40">
+          <Card className="fade-in-section p-4 md:p-5 bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-2xl shadow-elegant">
+            <div className="space-y-3">
+              <a href="tel:+919876543210" className="flex items-center gap-3 p-3 bg-gradient-to-br from-mint/20 to-mint/10 rounded-2xl hover:scale-[1.02] hover:shadow-soft transition-all duration-300 border border-mint/20 hover:border-mint/40">
                 <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -352,7 +364,7 @@ const Index = () => {
                 </div>
               </a>
 
-              <a href="mailto:raghav.bhutada@example.com" className="flex items-center gap-4 p-4 bg-gradient-to-br from-sky-blue/20 to-sky-blue/10 rounded-2xl hover:scale-105 transition-all border border-sky-blue/20 hover:border-sky-blue/40">
+              <a href="mailto:raghav.bhutada@example.com" className="flex items-center gap-3 p-3 bg-gradient-to-br from-sky-blue/20 to-sky-blue/10 rounded-2xl hover:scale-[1.02] hover:shadow-soft transition-all duration-300 border border-sky-blue/20 hover:border-sky-blue/40">
                 <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
@@ -362,7 +374,7 @@ const Index = () => {
                 </div>
               </a>
 
-              <a href="https://instagram.com/raghav_bhutada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-gradient-to-br from-coral/20 to-coral/10 rounded-2xl hover:scale-105 transition-all border border-coral/20 hover:border-coral/40">
+              <a href="https://instagram.com/raghav_bhutada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gradient-to-br from-coral/20 to-coral/10 rounded-2xl hover:scale-[1.02] hover:shadow-soft transition-all duration-300 border border-coral/20 hover:border-coral/40">
                 <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Instagram className="w-6 h-6 text-primary" />
                 </div>
