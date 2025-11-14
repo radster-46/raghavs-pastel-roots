@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Mail, Phone, Linkedin, Instagram, MapPin, Calendar, Droplet, Ruler } from "lucide-react";
+import { Mail, Phone, Instagram, MapPin, Calendar, Droplet, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ganeshjiLogo from "@/assets/ganeshji-logo.png";
@@ -44,14 +44,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex justify-center">
-          <img src={ganeshjiLogo} alt="Ganeshji" className="h-10 w-10 object-contain" />
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border/50 shadow-lg">
+        <div className="container mx-auto px-4 py-3 flex flex-col items-center justify-center gap-1">
+          <img src={ganeshjiLogo} alt="Ganeshji" className="h-12 w-12 object-contain drop-shadow-lg" />
+          <p className="text-xs font-semibold text-primary tracking-wide">श्री गणेशाय नमः</p>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 bg-gradient-to-b from-background to-muted/30">
+      <section className="pt-28 pb-16 px-4 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-12 fade-in-section">
             <div className="relative lg:w-1/2 flex justify-center">
@@ -329,40 +330,37 @@ const Index = () => {
           <h2 className="text-5xl font-display font-bold text-center mb-12 text-foreground fade-in-section">Get in Touch</h2>
           
           <Card className="fade-in-section p-8 md:p-12 bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-3xl card-shadow">
-            <div className="space-y-5 mb-8">
+            <div className="space-y-5">
               <a href="tel:+919876543210" className="flex items-center gap-4 p-6 bg-gradient-to-br from-mint/20 to-mint/10 rounded-2xl hover:scale-105 transition-all border border-mint/20 hover:border-mint/40">
-                <div className="p-3 bg-primary/10 rounded-xl">
+                <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Phone</p>
-                  <p className="font-semibold text-xl text-foreground">+91 98765 43210</p>
+                  <p className="font-semibold text-lg md:text-xl text-foreground">+91 98765 43210</p>
                 </div>
               </a>
 
               <a href="mailto:raghav.bhutada@example.com" className="flex items-center gap-4 p-6 bg-gradient-to-br from-sky-blue/20 to-sky-blue/10 rounded-2xl hover:scale-105 transition-all border border-sky-blue/20 hover:border-sky-blue/40">
-                <div className="p-3 bg-primary/10 rounded-xl">
+                <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Email</p>
-                  <p className="font-semibold text-xl text-foreground">raghav.bhutada@example.com</p>
+                  <p className="font-semibold text-sm md:text-xl text-foreground break-all">raghav.bhutada@example.com</p>
+                </div>
+              </a>
+
+              <a href="https://instagram.com/raghav_bhutada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-6 bg-gradient-to-br from-coral/20 to-coral/10 rounded-2xl hover:scale-105 transition-all border border-coral/20 hover:border-coral/40">
+                <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
+                  <Instagram className="w-6 h-6 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Instagram</p>
+                  <p className="font-semibold text-lg md:text-xl text-foreground">@raghav_bhutada</p>
                 </div>
               </a>
             </div>
-
-            <div className="flex gap-5 justify-center mb-8">
-              <a href="#" className="p-4 bg-gradient-to-br from-lavender/20 to-lavender/10 rounded-xl hover:scale-110 transition-all border border-lavender/20 hover:border-lavender/40">
-                <Linkedin className="w-7 h-7 text-primary" />
-              </a>
-              <a href="#" className="p-4 bg-gradient-to-br from-coral/20 to-coral/10 rounded-xl hover:scale-110 transition-all border border-coral/20 hover:border-coral/40">
-                <Instagram className="w-7 h-7 text-primary" />
-              </a>
-            </div>
-
-            <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground rounded-2xl py-7 text-xl font-display font-bold shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-              Tap to Contact
-            </Button>
           </Card>
         </div>
       </section>
