@@ -125,10 +125,9 @@ const Index = () => {
       {/* Timeline Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
         <div className="container mx-auto max-w-4xl relative">
-          <h2 className="text-4xl font-bold text-center mb-4 text-foreground fade-in-section">
+          <h2 className="text-4xl font-bold text-center mb-16 text-foreground fade-in-section">
             My Journey
           </h2>
-          <p className="text-center text-muted-foreground mb-16 fade-in-section">WOW...!!! WHAT A JOURNEY SO FAR...!!!</p>
           
           <div className="relative">
             {/* Vertical line */}
@@ -164,11 +163,11 @@ const Index = () => {
       </section>
 
       {/* Family Details Section */}
-      <section className="py-20 px-4 bg-background">
+      <section className="py-20 px-2 sm:px-4 bg-background">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-foreground fade-in-section">Family Heritage</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {/* Ancestry */}
             <Card className="fade-in-section p-5 bg-card border border-border shadow-card hover:shadow-soft transition-all">
               <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
