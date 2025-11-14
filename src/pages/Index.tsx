@@ -44,15 +44,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border/50 shadow-lg">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 backdrop-blur-lg border-b border-primary/20 shadow-lg">
         <div className="container mx-auto px-4 py-3 flex flex-col items-center justify-center gap-1">
-          <img src={ganeshjiLogo} alt="Ganeshji" className="h-12 w-12 object-contain drop-shadow-lg" />
+          <img src={ganeshjiLogo} alt="Ganeshji" className="h-12 w-12 object-contain drop-shadow-lg animate-pulse" />
           <p className="text-xs font-semibold text-primary tracking-wide">श्री गणेशाय नमः</p>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 px-4 bg-gradient-to-b from-background to-muted/30">
+      <section className="pt-28 pb-16 px-4 relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.08), hsl(var(--primary) / 0.05))',
+        backgroundSize: '200% 200%',
+        animation: 'gradient-shift 15s ease infinite'
+      }}>
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-12 fade-in-section">
             <div className="relative lg:w-1/2 flex justify-center">
@@ -123,7 +127,9 @@ const Index = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden" style={{
+        background: 'linear-gradient(180deg, hsl(var(--muted) / 0.3), hsl(var(--accent) / 0.05), hsl(var(--muted) / 0.2))'
+      }}>
         <div className="container mx-auto max-w-4xl relative">
           <h2 className="text-4xl font-bold text-center mb-16 text-foreground fade-in-section">
             My Journey
@@ -163,7 +169,9 @@ const Index = () => {
       </section>
 
       {/* Family Details Section */}
-      <section className="py-20 px-2 sm:px-4 bg-background">
+      <section className="py-20 px-2 sm:px-4 relative" style={{
+        background: 'linear-gradient(135deg, hsl(var(--background)), hsl(var(--primary) / 0.03), hsl(var(--background)))'
+      }}>
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-foreground fade-in-section">Family Heritage</h2>
           
@@ -307,7 +315,9 @@ const Index = () => {
       </section>
 
       {/* Kundli Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-background to-lavender/10">
+      <section className="py-20 px-4 relative" style={{
+        background: 'linear-gradient(180deg, hsl(var(--accent) / 0.08), hsl(var(--primary) / 0.05))'
+      }}>
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-5xl font-display font-bold text-center mb-16 text-foreground fade-in-section">Kundli</h2>
           
@@ -324,13 +334,15 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 mb-8">
+      <section className="py-20 px-4 mb-8 relative" style={{
+        background: 'linear-gradient(135deg, hsl(var(--muted) / 0.2), hsl(var(--background)), hsl(var(--accent) / 0.05))'
+      }}>
         <div className="container mx-auto max-w-2xl">
           <h2 className="text-5xl font-display font-bold text-center mb-12 text-foreground fade-in-section">Get in Touch</h2>
           
-          <Card className="fade-in-section p-8 md:p-12 bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-3xl card-shadow">
-            <div className="space-y-5">
-              <a href="tel:+919876543210" className="flex items-center gap-4 p-6 bg-gradient-to-br from-mint/20 to-mint/10 rounded-2xl hover:scale-105 transition-all border border-mint/20 hover:border-mint/40">
+          <Card className="fade-in-section p-5 md:p-6 bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-3xl card-shadow">
+            <div className="space-y-4">
+              <a href="tel:+919876543210" className="flex items-center gap-4 p-4 bg-gradient-to-br from-mint/20 to-mint/10 rounded-2xl hover:scale-105 transition-all border border-mint/20 hover:border-mint/40">
                 <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -340,7 +352,7 @@ const Index = () => {
                 </div>
               </a>
 
-              <a href="mailto:raghav.bhutada@example.com" className="flex items-center gap-4 p-6 bg-gradient-to-br from-sky-blue/20 to-sky-blue/10 rounded-2xl hover:scale-105 transition-all border border-sky-blue/20 hover:border-sky-blue/40">
+              <a href="mailto:raghav.bhutada@example.com" className="flex items-center gap-4 p-4 bg-gradient-to-br from-sky-blue/20 to-sky-blue/10 rounded-2xl hover:scale-105 transition-all border border-sky-blue/20 hover:border-sky-blue/40">
                 <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
@@ -350,7 +362,7 @@ const Index = () => {
                 </div>
               </a>
 
-              <a href="https://instagram.com/raghav_bhutada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-6 bg-gradient-to-br from-coral/20 to-coral/10 rounded-2xl hover:scale-105 transition-all border border-coral/20 hover:border-coral/40">
+              <a href="https://instagram.com/raghav_bhutada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-gradient-to-br from-coral/20 to-coral/10 rounded-2xl hover:scale-105 transition-all border border-coral/20 hover:border-coral/40">
                 <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                   <Instagram className="w-6 h-6 text-primary" />
                 </div>
