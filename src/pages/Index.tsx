@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
-import { Mail, Phone, Instagram, MapPin, Calendar, Droplet, Ruler } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ganeshjiLogo from "@/assets/ganeshji-logo.png";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import kundliChart from "@/assets/kundli-chart.png";
+import floralCorner from "@/assets/floral-corner.png";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   useEffect(() => {
@@ -21,75 +20,60 @@ const Index = () => {
     elements.forEach(el => observerRef.current?.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
-  const bioData = [{
-    icon: Calendar,
-    label: "Birth Date",
-    value: "05 Oct 2001"
-  }, {
-    icon: MapPin,
-    label: "Birth Place",
-    value: "Nanded"
-  }, {
-    icon: Ruler,
-    label: "Height",
-    value: "5 ft 6 in"
-  }, {
-    icon: Droplet,
-    label: "Blood Group",
-    value: "O Negative"
-  }];
-  const timeline = [{
-    year: "2001",
-    event: "Born in Nanded",
-    color: "coral"
-  }, {
-    year: "2017",
-    event: "Completed High School From Nagarjuna Public School, Nanded",
-    color: "mint"
-  }, {
-    year: "2019-2023",
-    event: "Graduated from PICT College, Pune (Electronics & Telecommunication)",
-    color: "sky-blue"
-  }, {
-    year: "2023-Present",
-    event: "Working as Full Stack Developer at BNY",
-    color: "lavender"
-  }];
-  return <div className="min-h-screen bg-background">
+  const bioData = [
+    { label: "Birth Date", value: "05 Oct 2001" },
+    { label: "Birth Place", value: "Nanded" },
+    { label: "Height", value: "5 ft 6 in" },
+    { label: "Blood Group", value: "O Negative" }
+  ];
+  const timeline = [
+    { year: "2001", event: "Born in Nanded" },
+    { year: "2017", event: "Completed High School From Nagarjuna Public School, Nanded" },
+    { year: "2019-2023", event: "Graduated from PICT College, Pune (Electronics & Telecommunication)" },
+    { year: "2023-Present", event: "Working as Full Stack Developer at BNY" }
+  ];
+  return <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Decorative Corner Elements */}
+      <div className="fixed top-0 left-0 w-64 h-64 opacity-40 pointer-events-none z-0">
+        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
+      </div>
+      <div className="fixed top-0 right-0 w-64 h-64 opacity-40 pointer-events-none z-0 transform scale-x-[-1]">
+        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
+      </div>
+      <div className="fixed bottom-0 left-0 w-64 h-64 opacity-40 pointer-events-none z-0 transform scale-y-[-1]">
+        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
+      </div>
+      <div className="fixed bottom-0 right-0 w-64 h-64 opacity-40 pointer-events-none z-0 transform scale-[-1]">
+        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
+      </div>
+
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 backdrop-blur-lg border-b border-primary/20 shadow-lg">
-        <div className="container mx-auto px-4 py-3 flex flex-col items-center justify-center gap-1">
-          <img src={ganeshjiLogo} alt="Ganeshji" className="h-12 w-12 object-contain drop-shadow-lg animate-pulse" />
-          <p className="text-xs font-semibold text-primary tracking-wide">श्री गणेशाय नमः</p>
+      <header className="relative z-10 py-6 border-b border-primary/20">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-2">
+          <img src={ganeshjiLogo} alt="Ganeshji" className="h-16 w-16 object-contain drop-shadow-lg" />
+          <p className="text-lg font-semibold text-primary tracking-wide">श्री गणेशाय नमः</p>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-28 pb-12 px-3 sm:px-4 relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.08), hsl(var(--primary) / 0.05))',
-      backgroundSize: '200% 200%',
-      animation: 'gradient-shift 15s ease infinite'
-    }}>
+      <section className="relative z-10 pt-12 pb-12 px-3 sm:px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col lg:flex-row items-center gap-8 mb-8 fade-in-section">
             <div className="relative lg:w-1/2 flex justify-center">
-              <div className="relative w-80 h-96 overflow-hidden shadow-float animate-float" style={{
-              clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
-              background: "linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1))"
-            }}>
+              <div className="relative w-80 h-96 overflow-hidden shadow-float" style={{
+                clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
+                background: "linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1))"
+              }}>
                 <img src={profilePhoto} alt="Raghav Bhutada" className="w-full h-full object-cover scale-110" />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-float transform rotate-6">
-                RB
               </div>
             </div>
             
             <div className="lg:w-1/2 text-center lg:text-left">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-display text-primary mb-6 leading-tight">
                 Raghav Bhutada
               </h1>
               
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-foreground leading-relaxed mb-4">
                 I'm Raghav, rooted in tradition and excited about new beginnings. I value family, culture, and meaningful connections. I love to travel and play badminton.
               </p>
             </div>
@@ -205,7 +189,7 @@ const Index = () => {
                 <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
                   <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
                   <p className="text-foreground"><strong>Grandfather:</strong> Bhutada Hanumandas Harigovinddas</p>
-                  <p className="text-muted-foreground text-xs">📞 7588237435</p>
+                  <p className="text-dark-text text-xs">📞 7588237435</p>
                   <p className="text-foreground"><strong>Grandmother:</strong> Late. Pushpabai Bhutada</p>
                 </div>
               </div>
@@ -220,12 +204,12 @@ const Index = () => {
                 <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-foreground font-semibold">Bhutada Murlidhar Hanumandas</p>
                   <p className="text-muted-foreground text-xs">Business, Nanded</p>
-                  <p className="text-primary text-xs mt-1">📞 9763131349</p>
+                  <p className="text-dark-text text-xs mt-1">📞 9763131349</p>
                 </div>
                 <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-foreground font-semibold">Bhutada Sangita Murlidhar</p>
                   <p className="text-muted-foreground text-xs">Housewife</p>
-                  <p className="text-primary text-xs mt-1">📞 9405377149</p>
+                  <p className="text-dark-text text-xs mt-1">📞 9405377149</p>
                 </div>
               </div>
             </Card>
@@ -351,48 +335,6 @@ const Index = () => {
       {/* Section Separator */}
       <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
 
-      {/* Contact Section */}
-      <section className="py-16 px-3 sm:px-4 mb-8 relative" style={{
-      background: 'linear-gradient(135deg, hsl(var(--muted) / 0.2), hsl(var(--background)), hsl(var(--accent) / 0.05))'
-    }}>
-        <div className="container mx-auto max-w-2xl">
-          <h2 className="text-5xl font-display font-bold text-center mb-8 text-foreground fade-in-section">Get in Touch</h2>
-          
-          <Card className="fade-in-section p-4 md:p-5 bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border-2 border-primary/10 rounded-2xl shadow-elegant">
-            <div className="space-y-3">
-              <a href="tel:+919876543210" className="flex items-center gap-3 p-3 bg-gradient-to-br from-mint/20 to-mint/10 rounded-2xl hover:scale-[1.02] hover:shadow-soft transition-all duration-300 border border-mint/20 hover:border-mint/40">
-                <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Phone</p>
-                  <p className="font-semibold text-lg md:text-xl text-foreground">+91 98765 43210</p>
-                </div>
-              </a>
-
-              <a href="mailto:raghav.bhutada@example.com" className="flex items-center gap-3 p-3 bg-gradient-to-br from-sky-blue/20 to-sky-blue/10 rounded-2xl hover:scale-[1.02] hover:shadow-soft transition-all duration-300 border border-sky-blue/20 hover:border-sky-blue/40">
-                <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Email</p>
-                  <p className="font-semibold text-sm md:text-xl text-foreground break-all">raghav.bhutada@example.com</p>
-                </div>
-              </a>
-
-              <a href="https://instagram.com/raghav_bhutada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-gradient-to-br from-coral/20 to-coral/10 rounded-2xl hover:scale-[1.02] hover:shadow-soft transition-all duration-300 border border-coral/20 hover:border-coral/40">
-                <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
-                  <Instagram className="w-6 h-6 text-primary" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Instagram</p>
-                  <p className="font-semibold text-lg md:text-xl text-foreground">@raghav_bhutada</p>
-                </div>
-              </a>
-            </div>
-          </Card>
-        </div>
-      </section>
     </div>;
 };
 export default Index;
