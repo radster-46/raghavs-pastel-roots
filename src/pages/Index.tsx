@@ -48,7 +48,7 @@ const Index = () => {
     color: "mint"
   }, {
     year: "2019-2023",
-    event: "Graduated from PICT College (Electronics & Telecommunication)",
+    event: "Graduated from PICT College, Pune (Electronics & Telecommunication)",
     color: "sky-blue"
   }, {
     year: "2023-Present",
