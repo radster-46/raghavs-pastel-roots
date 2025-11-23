@@ -44,7 +44,7 @@ const Index = () => {
     color: "coral"
   }, {
     year: "2017",
-    event: "Completed High School",
+    event: "Completed High School, Nagarjuna Public School, Nanded",
     color: "mint"
   }, {
     year: "2019-2023",
