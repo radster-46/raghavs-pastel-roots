@@ -85,9 +85,6 @@ const Index = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               {bioData.map((item, index) => <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-2xl border border-border hover:border-primary/40 hover:shadow-soft transition-all duration-300">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
                   <div>
                     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{item.label}</p>
                     <p className="font-semibold text-foreground">{item.value}</p>
@@ -97,22 +94,16 @@ const Index = () => {
 
             <div className="space-y-2">
               <div className="p-3 bg-muted/50 rounded-2xl">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="text-xs text-muted-foreground">Temporary Address</p>
-                    <p className="font-medium text-sm text-foreground">Shri Krishna Society, Vadban Rd, Mundhwa, Pune, 411036.    </p>
-                  </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">Temporary Address</p>
+                  <p className="font-medium text-sm text-foreground">Shri Krishna Society, Vadban Rd, Mundhwa, Pune, 411036.</p>
                 </div>
               </div>
 
               <div className="p-3 bg-muted/50 rounded-2xl">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="text-xs text-muted-foreground">Permanent Address</p>
-                    <p className="font-medium text-sm text-foreground">90/A, Ganesh Nagar, Nanded, 431602. </p>
-                  </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">Permanent Address</p>
+                  <p className="font-medium text-sm text-foreground">90/A, Ganesh Nagar, Nanded, 431602.</p>
                 </div>
               </div>
             </div>
