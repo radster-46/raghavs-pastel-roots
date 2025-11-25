@@ -48,10 +48,21 @@ const Index = () => {
       </div>
 
       {/* Header */}
-      <header className="relative z-10 py-6 border-b border-primary/20">
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-2">
-          <img src={ganeshjiLogo} alt="Ganeshji" className="h-16 w-16 object-contain drop-shadow-lg" />
-          <p className="text-lg font-semibold text-primary tracking-wide">श्री गणेशाय नमः</p>
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-primary/10 shadow-sm">
+        <div className="container mx-auto px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl opacity-50"></div>
+              <img 
+                src={ganeshjiLogo} 
+                alt="Ganeshji" 
+                className="relative h-12 w-12 sm:h-16 sm:w-16 object-cover scale-150 drop-shadow-lg" 
+              />
+            </div>
+            <div className="flex flex-col items-center">
+              <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display">श्री गणेशाय नमः</p>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -326,6 +337,22 @@ const Index = () => {
 
       {/* Section Separator */}
       <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
+
+      {/* Footer */}
+      <footer className="relative z-10 backdrop-blur-md bg-background/80 border-t border-primary/10 shadow-sm">
+        <div className="container mx-auto px-4 py-6 sm:py-8">
+          <div className="flex flex-col items-center justify-center gap-3">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-xl opacity-50"></div>
+              <h3 className="relative text-2xl sm:text-3xl font-display font-semibold text-primary tracking-wide">
+                जय श्री कृष्णा
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-muted-foreground">Jai Shree Krishna</p>
+            <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-transparent mt-2"></div>
+          </div>
+        </div>
+      </footer>
 
     </div>;
 };
