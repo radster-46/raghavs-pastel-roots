@@ -28,9 +28,9 @@ const Index = () => {
   ];
   const timeline = [
     { year: "2001", event: "Born in Nanded" },
-    { year: "2017", event: "Completed High School From Nagarjuna Public School, Nanded" },
+    { year: "2017", event: "Schooling from Nagarjuna Public School, Nanded" },
     { year: "2019-2023", event: "Graduated from PICT College, Pune (Electronics & Telecommunication)" },
-    { year: "2023-Present", event: "Working as Full Stack Developer at BNY" }
+    { year: "2023-Present", event: "Working as Full Stack Developer at BNY, Pune" }
   ];
   return <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Decorative Corner Elements */}
@@ -164,7 +164,7 @@ const Index = () => {
       background: 'linear-gradient(135deg, hsl(var(--background)), hsl(var(--primary) / 0.03), hsl(var(--background)))'
     }}>
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-8 text-foreground fade-in-section">Family Heritage</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 text-foreground fade-in-section">Family Details</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {/* Ancestry */}
@@ -179,9 +179,9 @@ const Index = () => {
                 </div>
                 <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
                   <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
-                  <p className="text-foreground"><strong>Grandfather:</strong> Bhutada Hanumandas Harigovinddas</p>
+                  <p className="text-foreground"><strong>Grandfather:</strong> Shri. Hanumandasji Harigovinddasji Bhutada</p>
                   <p className="text-dark-text text-xs">📞 7588237435</p>
-                  <p className="text-foreground"><strong>Grandmother:</strong> Late. Pushpabai Bhutada</p>
+                  <p className="text-foreground"><strong>Grandmother:</strong> Smt. Pushpabai Hanumandasji Bhutada</p>
                 </div>
               </div>
             </Card>
@@ -193,12 +193,12 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-3 rounded-2xl">
-                  <p className="text-foreground font-semibold">Bhutada Murlidhar Hanumandas</p>
+                  <p className="text-foreground font-semibold">Shri. Murlidahrji Hanumandasji Bhutada</p>
                   <p className="text-muted-foreground text-xs">Business, Nanded</p>
                   <p className="text-dark-text text-xs mt-1">📞 9763131349</p>
                 </div>
                 <div className="bg-muted/50 p-3 rounded-2xl">
-                  <p className="text-foreground font-semibold">Bhutada Sangita Murlidhar</p>
+                  <p className="text-foreground font-semibold">Sau. Sangita Murlidahrji Bhutada</p>
                   <p className="text-muted-foreground text-xs">Housewife</p>
                   <p className="text-dark-text text-xs mt-1">📞 9405377149</p>
                 </div>
@@ -212,15 +212,15 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada Nandkishor Hanumandas</p>
+                  <p className="text-foreground font-medium">Shri. Nandkishori Hanumandasji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9423350974</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada Ghanshyam Hanumandas</p>
+                  <p className="text-foreground font-medium">Shri. Ghanshyamji Hanumandasji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9850614918</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada Radheshyam Hanumandas</p>
+                  <p className="text-foreground font-medium">Shri. Radheshyamji Hanumandasji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Nanded • 9422170658</p>
                 </div>
               </div>
@@ -233,20 +233,21 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada MayurDhwaj Murlidhar</p>
-                  <p className="text-xs text-muted-foreground">Business</p>
+                  <p className="text-foreground font-medium">Shri. Mayurdhwajji Murlidharji Bhutada</p>
+                  <p className="text-xs text-muted-foreground italic">(Married to Sau. Priya Mayurdhwajji Bhutada)</p>
+                  <p className="text-xs text-muted-foreground">Business, Parbhani</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada Krishna Nandkishor</p>
-                  <p className="text-xs text-muted-foreground">Software Engineer</p>
+                  <p className="text-foreground font-medium">Shri. Krishnaji Nandkishorji Bhutada</p>
+                  <p className="text-xs text-muted-foreground">Software Engineer, Bangalore</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada Kanhya Ghanshyam</p>
-                  <p className="text-xs text-muted-foreground">Business</p>
+                  <p className="text-foreground font-medium">Shri. Kanhyaji Ghanshyamji Bhutada</p>
+                  <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Bhutada Pavan Ghanshyam</p>
-                  <p className="text-xs text-muted-foreground">B.Com</p>
+                  <p className="text-foreground font-medium">Shri. Pavanji Ghanshyamji Bhutada</p>
+                  <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
               </div>
             </Card>
@@ -264,12 +265,12 @@ const Index = () => {
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Uncle</p>
-                  <p className="text-foreground text-xs">Shri. Shrinivas Ratanlalji Jaju</p>
+                  <p className="text-foreground text-xs">Shri. Shrinivas Ratanlalji Jaju, Pune</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Aunts</p>
                   <div className="space-y-1 text-xs text-foreground">
-                    <p>Sau. Sunanda Dhananjayji Lahoti, Shambhaji Nagar</p>
+                    <p>Sau. Sunanda Dhananjayji Lahoti, Chh. Sambhaji Nagar</p>
                     <p>Sau. Anuradha JayPrakashji Sarda, Bangalore</p>
                     <p>Sau. Archana Murlimohanji Rathi, Nanded</p>
                   </div>
