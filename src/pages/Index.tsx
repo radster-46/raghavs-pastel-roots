@@ -29,7 +29,7 @@ const Index = () => {
   const timeline = [
     { year: "2001", event: "Born in Nanded" },
     { year: "2017", event: "Schooling from Nagarjuna Public School, Nanded" },
-    { year: "2019-2023", event: "Graduated from PICT College, Pune (Electronics & Telecommunication)" },
+    { year: "2019-2023", event: "Graduated from PICT, Pune (E&TC)" },
     { year: "2023-Present", event: "Working as Full Stack Developer at BNY, Pune" }
   ];
   return <div className="min-h-screen bg-background relative overflow-hidden">
