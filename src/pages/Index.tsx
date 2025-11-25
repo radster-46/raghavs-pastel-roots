@@ -179,9 +179,9 @@ const Index = () => {
                 </div>
                 <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
                   <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
-                  <p className="text-foreground"><strong>Grandfather:</strong> Shri. Hanumandasji Harigovinddasji Bhutada</p>
+                  <p className="text-foreground font-semibold">Shri. Hanumandasji Harigovinddasji Bhutada</p>
                   <p className="text-dark-text text-xs">📞 7588237435</p>
-                  <p className="text-foreground"><strong>Grandmother:</strong> Smt. Pushpabai Hanumandasji Bhutada</p>
+                  <p className="text-foreground font-semibold">Smt. Pushpabai Hanumandasji Bhutada</p>
                 </div>
               </div>
             </Card>
@@ -234,7 +234,7 @@ const Index = () => {
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Shri. Mayurdhwajji Murlidharji Bhutada</p>
-                  <p className="text-xs text-muted-foreground italic">(Married to Sau. Priya Mayurdhwajji Bhutada)</p>
+                  <p className="text-xs text-muted-foreground">(Married to Sau. Priya Mayurdhwajji Bhutada)</p>
                   <p className="text-xs text-muted-foreground">Business, Parbhani</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
