@@ -83,7 +83,7 @@ const Index = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-foreground leading-relaxed mb-4">
-                I am a 24-year-old working as Software Developer in Pune, and I'm someone who values empathy, family, and continuous growth. I enjoy an active lifestyle—whether it's playing badminton, staying fit, or taking spontaneous bike trips and travel breaks to explore new places. Music is a big part of my day, and I love learning new things that help me grow personally and professionally. My family means a lot to me, and their support has shaped the grounded, respectful person I am today. I hope to build a future with someone who is caring, family-oriented, values financial stability, and is equally driven toward growth in her professional journey.
+                I am a 24-year-old working as Software Developer in Pune, and I'm someone who values empathy, family, and continuous growth. I enjoy an active lifestyle whether it's playing badminton, staying fit, or taking spontaneous bike trips and travel breaks to explore new places. Music is a big part of my day, and I love learning new things that help me grow personally and professionally. My family means a lot to me, and their support has shaped the grounded, respectful person I am today. I hope to build a future with someone who is caring, family-oriented, values financial stability, and is equally driven toward growth in her professional journey.
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ const Index = () => {
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                     <Card className="inline-block p-3 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
                       <h3 className="font-semibold text-foreground mb-1">{item.event}</h3>
-                      <p className="text-lg font-bold text-primary">{item.year}</p>
+                      <p className="text-2xl font-bold text-primary">{item.year}</p>
                     </Card>
                   </div>
                   
@@ -221,7 +221,7 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Nandkishorji Hanumandasji Bhutada</p>
+                  <p className="text-foreground font-medium">Shri. Nandkishorji Hanumandasji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur • <span className="text-blue-600">9423350974</span></p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
@@ -242,20 +242,20 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Mayurdhwaj Murlidharji Bhutada</p>
-                  <p className="text-xs text-muted-foreground">(Married to Sau. Priya Mayurdhwajji Bhutada)</p>
+                  <p className="text-foreground font-medium">Shri. Mayurdhwaj Murlidharji Bhutada</p>
+                  <p className="text-xs text-muted-foreground">(Married to Sau. Priya Mayurdhwaj Bhutada)</p>
                   <p className="text-xs text-muted-foreground">Business, Parbhani</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Krishna Nandkishorji Bhutada</p>
+                  <p className="text-foreground font-medium">Shri. Krishna Nandkishorji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Software Engineer, Bangalore</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Kanhaiya Ghanshyamji Bhutada</p>
+                  <p className="text-foreground font-medium">Shri. Kanhaiya Ghanshyamji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Pawan Ghanshyamji Bhutada</p>
+                  <p className="text-foreground font-medium">Shri. Pawan Ghanshyamji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
               </div>
@@ -269,12 +269,12 @@ const Index = () => {
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Nanihal</p>
-                  <p className="text-foreground font-semibold">Shri. Shrinivasji Ratanlalji Jaju</p>
+                  <p className="text-foreground font-semibold">Shri. Ratanlalji Gangaramji Jaju</p>
                   <p className="text-muted-foreground text-xs">Pune • <span className="text-blue-600">9702057777</span></p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Uncle</p>
-                  <p className="text-foreground text-xs">Shri. Shrinivas Ratanlalji Jaju, Pune</p>
+                  <p className="text-foreground text-xs">Shri. Shrinivasji Ratanlalji Jaju, Pune</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Aunts</p>
