@@ -50,18 +50,16 @@ const Index = () => {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-primary/10 shadow-sm">
         <div className="container mx-auto px-4 py-3 sm:py-4">
-          <div className="flex items-center justify-center gap-3 sm:gap-4">
+          <div className="flex flex-col items-center justify-center gap-2">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl opacity-50"></div>
               <img 
                 src={ganeshjiLogo} 
                 alt="Ganeshji" 
-                className="relative h-12 w-12 sm:h-16 sm:w-16 object-cover scale-150 drop-shadow-lg" 
+                className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-lg" 
               />
             </div>
-            <div className="flex flex-col items-center">
-              <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display">श्री गणेशाय नमः</p>
-            </div>
+            <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display">श्री गणेशाय नमः</p>
           </div>
         </div>
       </header>
@@ -146,7 +144,7 @@ const Index = () => {
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                     <Card className="inline-block p-3 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
                       <h3 className="font-semibold text-foreground mb-1">{item.event}</h3>
-                      <p className="text-sm text-muted-foreground">{item.year}</p>
+                      <p className="text-lg font-bold text-primary">{item.year}</p>
                     </Card>
                   </div>
                   
@@ -156,7 +154,7 @@ const Index = () => {
                   {/* Date side */}
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8 text-left' : 'pr-8 text-right'}`}>
                     <div className="inline-block">
-                      <div className="text-sm font-medium text-muted-foreground">{item.year.includes('-') ? item.year.split('-')[0] : item.year}</div>
+                      <div className="text-lg font-bold text-primary">{item.year.includes('-') ? item.year.split('-')[0] : item.year}</div>
                       
                       
                     </div>
@@ -186,13 +184,13 @@ const Index = () => {
               <div className="space-y-2 text-sm">
                 <div>
                   <span className="font-semibold text-foreground">Sakha:</span>
-                  <span className="text-muted-foreground ml-1">Bhutada & Jaju</span>
+                  <span className="text-muted-foreground ml-1"><span className="font-bold">Bhutada & Jaju</span></span>
                 </div>
                 <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
                   <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
                   <p className="text-foreground font-semibold">Shri. Hanumandasji Harigovinddasji Bhutada</p>
-                  <p className="text-dark-text text-xs">📞 7588237435</p>
-                  <p className="text-foreground font-semibold">Smt. Pushpabai Hanumandasji Bhutada</p>
+                  <p className="text-blue-600 text-xs">📞 7588237435</p>
+                  <p className="text-foreground font-semibold">Late Pushpabai Hanumandasji Bhutada</p>
                 </div>
               </div>
             </Card>
@@ -204,14 +202,14 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-3 rounded-2xl">
-                  <p className="text-foreground font-semibold">Shri. Murlidahrji Hanumandasji Bhutada</p>
+                  <p className="text-foreground font-semibold">Shri. Murlidharji Hanumandasji Bhutada</p>
                   <p className="text-muted-foreground text-xs">Business, Nanded</p>
-                  <p className="text-dark-text text-xs mt-1">📞 9763131349</p>
+                  <p className="text-blue-600 text-xs mt-1">📞 9763131349</p>
                 </div>
                 <div className="bg-muted/50 p-3 rounded-2xl">
-                  <p className="text-foreground font-semibold">Sau. Sangita Murlidahrji Bhutada</p>
+                  <p className="text-foreground font-semibold">Sau. Sangeeta Murlidharji Bhutada</p>
                   <p className="text-muted-foreground text-xs">Housewife</p>
-                  <p className="text-dark-text text-xs mt-1">📞 9405377149</p>
+                  <p className="text-blue-600 text-xs mt-1">📞 9405377149</p>
                 </div>
               </div>
             </Card>
@@ -223,16 +221,16 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Shri. Nandkishori Hanumandasji Bhutada</p>
-                  <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9423350974</p>
+                  <p className="text-foreground font-medium">Nandkishorji Hanumandasji Bhutada</p>
+                  <p className="text-xs text-muted-foreground">Business, Ahmedpur • <span className="text-blue-600">9423350974</span></p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Shri. Ghanshyamji Hanumandasji Bhutada</p>
-                  <p className="text-xs text-muted-foreground">Business, Ahmedpur • 9850614918</p>
+                  <p className="text-xs text-muted-foreground">Business, Ahmedpur • <span className="text-blue-600">9850614918</span></p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Shri. Radheshyamji Hanumandasji Bhutada</p>
-                  <p className="text-xs text-muted-foreground">Business, Nanded • 9422170658</p>
+                  <p className="text-xs text-muted-foreground">Business, Nanded • <span className="text-blue-600">9422170658</span></p>
                 </div>
               </div>
             </Card>
@@ -244,20 +242,20 @@ const Index = () => {
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Shri. Mayurdhwajji Murlidharji Bhutada</p>
+                  <p className="text-foreground font-medium">Mayurdhwaj Murlidharji Bhutada</p>
                   <p className="text-xs text-muted-foreground">(Married to Sau. Priya Mayurdhwajji Bhutada)</p>
                   <p className="text-xs text-muted-foreground">Business, Parbhani</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Shri. Krishnaji Nandkishorji Bhutada</p>
+                  <p className="text-foreground font-medium">Krishna Nandkishorji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Software Engineer, Bangalore</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Shri. Kanhyaji Ghanshyamji Bhutada</p>
+                  <p className="text-foreground font-medium">Kanhaiya Ghanshyamji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-medium">Shri. Pavanji Ghanshyamji Bhutada</p>
+                  <p className="text-foreground font-medium">Pawan Ghanshyamji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
               </div>
@@ -271,8 +269,8 @@ const Index = () => {
               <div className="space-y-2 text-sm">
                 <div className="bg-muted/50 p-3 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Nanihal</p>
-                  <p className="text-foreground font-semibold">Shri. Ratanlalji Shrinivasji Jaju</p>
-                  <p className="text-muted-foreground text-xs">Pune • 9702057777</p>
+                  <p className="text-foreground font-semibold">Shri. Shrinivasji Ratanlalji Jaju</p>
+                  <p className="text-muted-foreground text-xs">Pune • <span className="text-blue-600">9702057777</span></p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-xs font-semibold text-primary uppercase mb-1">Maternal Uncle</p>
@@ -345,10 +343,9 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-xl opacity-50"></div>
               <h3 className="relative text-2xl sm:text-3xl font-display font-semibold text-primary tracking-wide">
-                जय श्री कृष्णा
+                Jai Shree Krishna
               </h3>
             </div>
-            <p className="text-sm sm:text-base text-muted-foreground">Jai Shree Krishna</p>
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-transparent mt-2"></div>
           </div>
         </div>
