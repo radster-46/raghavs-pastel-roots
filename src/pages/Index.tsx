@@ -154,7 +154,7 @@ const Index = () => {
                   {/* Date side */}
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8 text-left' : 'pr-8 text-right'}`}>
                     <div className="inline-block">
-                      <div className="text-lg font-bold text-primary">{item.year.includes('-') ? item.year.split('-')[0] : item.year}</div>
+                      <div className="text-3xl font-bold text-primary">{item.year.includes('-') ? item.year.split('-')[0] : item.year}</div>
                       
                       
                     </div>
