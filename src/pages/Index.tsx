@@ -1,9 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import ganeshjiLogo from "@/assets/ganeshji-logo.png";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import kundliChart from "@/assets/kundli-chart.png";
-import floralCorner from "@/assets/floral-corner.png";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   useEffect(() => {
@@ -32,34 +30,47 @@ const Index = () => {
     { year: "2019-2023", event: "Graduated from PICT, Pune (E&TC)" },
     { year: "2023-Present", event: "Working as Full Stack Developer at BNY, Pune" }
   ];
-  return <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Decorative Corner Elements */}
-      <div className="fixed top-0 left-0 w-64 h-64 opacity-40 pointer-events-none z-0">
-        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
-      </div>
-      <div className="fixed top-0 right-0 w-64 h-64 opacity-40 pointer-events-none z-0 transform scale-x-[-1]">
-        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
-      </div>
-      <div className="fixed bottom-0 left-0 w-64 h-64 opacity-40 pointer-events-none z-0 transform scale-y-[-1]">
-        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
-      </div>
-      <div className="fixed bottom-0 right-0 w-64 h-64 opacity-40 pointer-events-none z-0 transform scale-[-1]">
-        <img src={floralCorner} alt="" className="w-full h-full object-contain" />
+  return <div className="min-h-screen festive-background relative overflow-hidden">
+      {/* Animated Particle Background */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Bokeh glow effects */}
+        <div className="absolute top-20 left-20 w-96 h-96 rounded-full opacity-20 blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(320 85% 65%), transparent)', animation: 'bokeh-pulse 4s ease-in-out infinite' }}></div>
+        <div className="absolute bottom-40 right-32 w-80 h-80 rounded-full opacity-20 blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(35 95% 60%), transparent)', animation: 'bokeh-pulse 5s ease-in-out infinite 1s' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full opacity-15 blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(330 90% 70%), transparent)', animation: 'bokeh-pulse 6s ease-in-out infinite 2s' }}></div>
+        
+        {/* Floating particles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: `${Math.random() * 8 + 3}px`,
+              height: `${Math.random() * 8 + 3}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              background: ['hsl(320 85% 65%)', 'hsl(35 95% 60%)', 'hsl(330 90% 70%)', 'hsl(15 85% 65%)'][Math.floor(Math.random() * 4)],
+              animation: `particle-float ${Math.random() * 10 + 8}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 5}s`,
+              opacity: 0.6,
+            }}
+          />
+        ))}
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-primary/10 shadow-sm">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/60 border-b border-primary/20 shadow-lg">
         <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex flex-col items-center justify-center gap-2">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl opacity-50"></div>
-              <img 
-                src={ganeshjiLogo} 
-                alt="Ganeshji" 
-                className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-lg" 
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/40 rounded-full blur-xl"></div>
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+                <span className="text-5xl sm:text-6xl">🕉️</span>
+              </div>
             </div>
-            <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display">श्री गणेशाय नमः</p>
+            <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display drop-shadow-lg">श्री गणेशाय नमः</p>
           </div>
         </div>
       </header>
