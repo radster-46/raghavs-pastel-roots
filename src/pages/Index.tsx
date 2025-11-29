@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import kundliChart from "@/assets/kundli-chart.png";
+import ganeshjiLogo from "@/assets/ganeshji-logo.png";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   useEffect(() => {
@@ -31,46 +32,41 @@ const Index = () => {
     { year: "2023-Present", event: "Working as Full Stack Developer at BNY, Pune" }
   ];
   return <div className="min-h-screen festive-background relative overflow-hidden">
-      {/* Animated Particle Background */}
+      {/* Subtle Background Effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Bokeh glow effects */}
-        <div className="absolute top-20 left-20 w-96 h-96 rounded-full opacity-20 blur-3xl" 
-             style={{ background: 'radial-gradient(circle, hsl(320 85% 65%), transparent)', animation: 'bokeh-pulse 4s ease-in-out infinite' }}></div>
-        <div className="absolute bottom-40 right-32 w-80 h-80 rounded-full opacity-20 blur-3xl" 
-             style={{ background: 'radial-gradient(circle, hsl(35 95% 60%), transparent)', animation: 'bokeh-pulse 5s ease-in-out infinite 1s' }}></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full opacity-15 blur-3xl" 
-             style={{ background: 'radial-gradient(circle, hsl(330 90% 70%), transparent)', animation: 'bokeh-pulse 6s ease-in-out infinite 2s' }}></div>
+        {/* Subtle bokeh glow effects */}
+        <div className="absolute top-20 left-20 w-96 h-96 rounded-full opacity-5 blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(15 75% 55%), transparent)', animation: 'bokeh-pulse 6s ease-in-out infinite' }}></div>
+        <div className="absolute bottom-40 right-32 w-80 h-80 rounded-full opacity-5 blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(38 80% 60%), transparent)', animation: 'bokeh-pulse 8s ease-in-out infinite 2s' }}></div>
         
-        {/* Floating particles */}
-        {[...Array(20)].map((_, i) => (
+        {/* Minimal floating particles */}
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: `${Math.random() * 8 + 3}px`,
-              height: `${Math.random() * 8 + 3}px`,
+              width: `${Math.random() * 4 + 2}px`,
+              height: `${Math.random() * 4 + 2}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              background: ['hsl(320 85% 65%)', 'hsl(35 95% 60%)', 'hsl(330 90% 70%)', 'hsl(15 85% 65%)'][Math.floor(Math.random() * 4)],
-              animation: `particle-float ${Math.random() * 10 + 8}s ease-in-out infinite`,
+              background: ['hsl(15 75% 55%)', 'hsl(38 80% 60%)', 'hsl(330 60% 85%)'][Math.floor(Math.random() * 3)],
+              animation: `particle-float ${Math.random() * 15 + 10}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
-              opacity: 0.6,
+              opacity: 0.2,
             }}
           />
         ))}
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/60 border-b border-primary/20 shadow-lg">
+      <header className="sticky top-0 z-50 backdrop-blur-sm bg-background/80 border-b border-border shadow-sm">
         <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex flex-col items-center justify-center gap-2">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/40 rounded-full blur-xl"></div>
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
-                <span className="text-5xl sm:text-6xl">🕉️</span>
-              </div>
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+              <img src={ganeshjiLogo} alt="Ganeshji" className="w-full h-full object-contain" />
             </div>
-            <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display drop-shadow-lg">श्री गणेशाय नमः</p>
+            <p className="text-base sm:text-lg font-semibold text-primary tracking-wide font-display">श्री गणेशाय नमः</p>
           </div>
         </div>
       </header>
@@ -80,11 +76,11 @@ const Index = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col lg:flex-row items-center gap-8 mb-8 fade-in-section">
             <div className="relative lg:w-1/2 flex justify-center">
-              <div className="relative w-80 h-96 overflow-hidden shadow-float" style={{
-                clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
-                background: "linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1))"
-              }}>
-                <img src={profilePhoto} alt="Raghav Bhutada" className="w-full h-full object-cover scale-110" />
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl opacity-60"></div>
+                <div className="relative w-80 h-96 overflow-hidden rounded-3xl shadow-float border-4 border-white/80">
+                  <img src={profilePhoto} alt="Raghav Bhutada" className="w-full h-full object-cover" />
+                </div>
               </div>
             </div>
             
