@@ -54,8 +54,8 @@ export default {
         "light-green": "hsl(var(--light-green))",
       },
       fontFamily: {
-        sans: ['Cormorant Garamond', 'serif'],
-        display: ['Prata', 'serif'],
+        sans: ['Outfit', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
