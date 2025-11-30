@@ -1,10 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import kundliChart from "@/assets/kundli-chart.png";
 import ganeshjiLogo from "@/assets/ganeshji-logo.png";
+import gallery1 from "@/assets/gallery/1.jpg";
+import gallery2 from "@/assets/gallery/2.jpg";
+import gallery3 from "@/assets/gallery/3.jpg";
+import gallery4 from "@/assets/gallery/4.jpg";
+import gallery5 from "@/assets/gallery/5.jpg";
+import gallery6 from "@/assets/gallery/6.jpg";
+import gallery7 from "@/assets/gallery/8.jpg";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7];
+
   useEffect(() => {
     observerRef.current = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -19,6 +30,14 @@ const Index = () => {
     elements.forEach(el => observerRef.current?.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [galleryImages.length]);
   const bioData = [
     { label: "Birth Date", value: "05 Oct 2001" },
     { label: "Birth Place", value: "Nanded" },
@@ -337,6 +356,59 @@ const Index = () => {
               <img src={kundliChart} alt="Kundli Chart" className="w-full h-auto rounded-2xl shadow-xl ring-4 ring-primary/10" />
             </div>
           </Card>
+        </div>
+      </section>
+
+      {/* Section Separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
+
+      {/* Photo Gallery Section */}
+      <section className="py-16 px-3 sm:px-4 relative overflow-hidden" style={{
+        background: 'linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted) / 0.3))'
+      }}>
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-4xl font-bold text-center mb-12 text-foreground fade-in-section">
+            A Glimpse Into My Journey
+          </h2>
+          
+          <div className="relative fade-in-section">
+            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl shadow-elegant">
+              {galleryImages.map((img, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentImageIndex
+                      ? 'opacity-100 translate-x-0'
+                      : index < currentImageIndex
+                      ? 'opacity-0 -translate-x-full'
+                      : 'opacity-0 translate-x-full'
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`Gallery ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+              
+              {/* Navigation dots */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                {galleryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? 'bg-primary w-8'
+                        : 'bg-white/50 hover:bg-white/80'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
