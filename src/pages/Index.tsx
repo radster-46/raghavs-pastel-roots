@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/main-profile.jpg";
 import kundliChart from "@/assets/kundli-chart.png";
 import ganeshjiLogo from "@/assets/ganeshji-logo.png";
 import gallery1 from "@/assets/gallery/1.jpg";
@@ -12,7 +12,11 @@ import gallery6 from "@/assets/gallery/6.jpg";
 import gallery7 from "@/assets/gallery/8.jpg";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isGalleryInView, setIsGalleryInView] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   
   const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7];
 
@@ -31,16 +35,58 @@ const Index = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  // Gallery viewport detection
   useEffect(() => {
+    const galleryObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsGalleryInView(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (galleryRef.current) {
+      galleryObserver.observe(galleryRef.current);
+    }
+
+    return () => galleryObserver.disconnect();
+  }, []);
+
+  // Auto-scroll only when gallery is in viewport
+  useEffect(() => {
+    if (!isGalleryInView) return;
+    
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
     }, 3000);
     
     return () => clearInterval(interval);
-  }, [galleryImages.length]);
+  }, [galleryImages.length, isGalleryInView]);
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swipe left
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }
+
+    if (touchStart - touchEnd < -75) {
+      // Swipe right
+      setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    }
+  };
   const bioData = [
-    { label: "Birth Date", value: "05 Oct 2001" },
-    { label: "Birth Place", value: "Nanded" },
+    { label: "Birth Date & Time", value: "05 Oct 2001, 07:10 AM" },
+    { label: "Birth Place", value: "Nanded, Maharashtra" },
     { label: "Height", value: "5 ft 6 in" },
     { label: "Blood Group", value: "O Negative" }
   ];
@@ -220,19 +266,20 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {/* Ancestry */}
             <Card className="fade-in-section p-4 bg-card border border-border shadow-elegant rounded-2xl hover:shadow-soft transition-all duration-300">
-              <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
-                <span className="text-xl">🏛️</span> Ancestry
-              </h3>
               <div className="space-y-2 text-sm">
                 <div>
                   <span className="font-semibold text-foreground">Sakha:</span>
                   <span className="text-muted-foreground ml-1"><span className="font-bold">Bhutada & Jaju</span></span>
                 </div>
-                <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
-                  <p className="text-xs font-semibold text-primary uppercase">Grandparents</p>
-                  <p className="text-foreground font-semibold">Shri. Hanumandasji Harigovinddasji Bhutada</p>
-                  <p className="text-blue-600 text-xs">📞 7588237435</p>
-                  <p className="text-foreground font-semibold">Late Pushpabai Hanumandasji Bhutada</p>
+                <div className="mt-4">
+                  <h3 className="text-lg font-bold mb-3 text-primary flex items-center gap-2">
+                    <span className="text-xl">👴</span> Grandparents
+                  </h3>
+                  <div className="bg-muted/50 p-3 rounded-2xl space-y-1">
+                    <p className="text-foreground font-semibold">Shri. Hanumandasji Harigovinddasji Bhutada</p>
+                    <p className="text-blue-600 text-xs">📞 7588237435</p>
+                    <p className="text-foreground font-semibold">Late Pushpabai Hanumandasji Bhutada</p>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -379,13 +426,21 @@ const Index = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-50"></div>
 
       {/* Photo Gallery Section */}
-      <section className="py-16 px-3 sm:px-4 relative overflow-hidden" style={{
-        background: 'linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted) / 0.3))'
-      }}>
+      <section 
+        ref={galleryRef}
+        className="py-16 px-3 sm:px-4 relative overflow-hidden" 
+        style={{
+          background: 'linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted) / 0.3))'
+        }}
+      >
         <div className="container mx-auto max-w-6xl">
-          
           <div className="relative fade-in-section">
-            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl shadow-elegant">
+            <div 
+              className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl shadow-elegant"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {galleryImages.map((img, index) => (
                 <div
                   key={index}
