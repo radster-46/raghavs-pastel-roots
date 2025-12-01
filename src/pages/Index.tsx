@@ -51,31 +51,47 @@ const Index = () => {
     { year: "2023-Present", event: "Working as Full Stack Developer at BNY, Pune" }
   ];
   return <div className="min-h-screen festive-background relative overflow-hidden">
-      {/* Subtle Background Effects */}
+      {/* Light, Airy Background Effects - Inspired by floating confetti */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Subtle bokeh glow effects */}
-        <div className="absolute top-20 left-20 w-96 h-96 rounded-full opacity-5 blur-3xl" 
-             style={{ background: 'radial-gradient(circle, hsl(15 75% 55%), transparent)', animation: 'bokeh-pulse 6s ease-in-out infinite' }}></div>
-        <div className="absolute bottom-40 right-32 w-80 h-80 rounded-full opacity-5 blur-3xl" 
-             style={{ background: 'radial-gradient(circle, hsl(38 80% 60%), transparent)', animation: 'bokeh-pulse 8s ease-in-out infinite 2s' }}></div>
+        {/* Soft bokeh glow effects - very subtle light pastels */}
+        <div className="absolute top-32 left-24 w-[500px] h-[500px] rounded-full opacity-[0.08] blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(330 70% 90%), transparent)', animation: 'bokeh-pulse 8s ease-in-out infinite' }}></div>
+        <div className="absolute bottom-48 right-40 w-96 h-96 rounded-full opacity-[0.06] blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(25 85% 88%), transparent)', animation: 'bokeh-pulse 10s ease-in-out infinite 3s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 rounded-full opacity-[0.05] blur-3xl" 
+             style={{ background: 'radial-gradient(circle, hsl(45 75% 85%), transparent)', animation: 'bokeh-pulse 12s ease-in-out infinite 5s' }}></div>
         
-        {/* Minimal floating particles */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              background: ['hsl(15 75% 55%)', 'hsl(38 80% 60%)', 'hsl(330 60% 85%)'][Math.floor(Math.random() * 3)],
-              animation: `particle-float ${Math.random() * 15 + 10}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: 0.2,
-            }}
-          />
-        ))}
+        {/* Light floating particles - confetti inspired */}
+        {[...Array(20)].map((_, i) => {
+          const colors = [
+            'hsl(15 75% 75%)',      // Light coral
+            'hsl(330 70% 85%)',     // Soft pink
+            'hsl(45 75% 82%)',      // Pale gold
+            'hsl(25 80% 80%)',      // Light peach
+            'hsl(280 40% 88%)',     // Lavender light
+          ];
+          const size = Math.random() * 6 + 3;
+          const isRectangle = Math.random() > 0.5;
+          
+          return (
+            <div
+              key={i}
+              className="absolute"
+              style={{
+                width: isRectangle ? `${size * 1.5}px` : `${size}px`,
+                height: `${size}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                background: colors[Math.floor(Math.random() * colors.length)],
+                borderRadius: isRectangle ? '2px' : '50%',
+                animation: `particle-float ${Math.random() * 20 + 15}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 8}s`,
+                opacity: 0.15,
+                transform: `rotate(${Math.random() * 360}deg)`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Header */}
@@ -367,9 +383,6 @@ const Index = () => {
         background: 'linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted) / 0.3))'
       }}>
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground fade-in-section">
-            A Glimpse Into My Journey
-          </h2>
           
           <div className="relative fade-in-section">
             <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl shadow-elegant">
