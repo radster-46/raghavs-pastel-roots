@@ -13,10 +13,12 @@ import gallery7 from "@/assets/gallery/8.jpg";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
+  const autoScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryInView, setIsGalleryInView] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
   
   const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7];
 
@@ -53,20 +55,49 @@ const Index = () => {
     return () => galleryObserver.disconnect();
   }, []);
 
-  // Auto-scroll only when gallery is in viewport
+  // Auto-scroll only when gallery is in viewport and user is not interacting
   useEffect(() => {
-    if (!isGalleryInView) return;
+    if (!isGalleryInView || isUserInteracting) {
+      if (autoScrollTimerRef.current) {
+        clearInterval(autoScrollTimerRef.current);
+        autoScrollTimerRef.current = null;
+      }
+      return;
+    }
     
-    const interval = setInterval(() => {
+    autoScrollTimerRef.current = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
     }, 3000);
     
-    return () => clearInterval(interval);
-  }, [galleryImages.length, isGalleryInView]);
+    return () => {
+      if (autoScrollTimerRef.current) {
+        clearInterval(autoScrollTimerRef.current);
+      }
+    };
+  }, [galleryImages.length, isGalleryInView, isUserInteracting]);
+
+  // Reset interaction state after 3 seconds of no interaction
+  const resetInteractionTimer = useRef<NodeJS.Timeout | null>(null);
+  
+  const handleManualNavigation = (newIndex: number) => {
+    setIsUserInteracting(true);
+    setCurrentImageIndex(newIndex);
+    
+    // Clear existing timer
+    if (resetInteractionTimer.current) {
+      clearTimeout(resetInteractionTimer.current);
+    }
+    
+    // Resume auto-scroll after 3 seconds of no interaction
+    resetInteractionTimer.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 3000);
+  };
 
   // Touch handlers for swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
+    setIsUserInteracting(true);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -76,12 +107,18 @@ const Index = () => {
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 75) {
       // Swipe left
-      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-    }
-
-    if (touchStart - touchEnd < -75) {
+      handleManualNavigation((currentImageIndex + 1) % galleryImages.length);
+    } else if (touchStart - touchEnd < -75) {
       // Swipe right
-      setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+      handleManualNavigation((currentImageIndex - 1 + galleryImages.length) % galleryImages.length);
+    } else {
+      // No swipe, just reset interaction timer
+      if (resetInteractionTimer.current) {
+        clearTimeout(resetInteractionTimer.current);
+      }
+      resetInteractionTimer.current = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 3000);
     }
   };
   const bioData = [
@@ -465,7 +502,7 @@ const Index = () => {
                 {galleryImages.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentImageIndex(index)}
+                    onClick={() => handleManualNavigation(index)}
                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                       index === currentImageIndex
                         ? 'bg-primary w-8'
