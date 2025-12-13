@@ -56,25 +56,31 @@ const Index = () => {
   }, []);
 
   // Auto-scroll only when gallery is in viewport and user is not interacting
+  // First image shows for 1 second, remaining images for 3 seconds
   useEffect(() => {
     if (!isGalleryInView || isUserInteracting) {
       if (autoScrollTimerRef.current) {
-        clearInterval(autoScrollTimerRef.current);
+        clearTimeout(autoScrollTimerRef.current);
         autoScrollTimerRef.current = null;
       }
       return;
     }
     
-    autoScrollTimerRef.current = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 3000);
+    const scheduleNextImage = () => {
+      const delay = currentImageIndex === 0 ? 1000 : 3000;
+      autoScrollTimerRef.current = setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+      }, delay);
+    };
+    
+    scheduleNextImage();
     
     return () => {
       if (autoScrollTimerRef.current) {
-        clearInterval(autoScrollTimerRef.current);
+        clearTimeout(autoScrollTimerRef.current);
       }
     };
-  }, [galleryImages.length, isGalleryInView, isUserInteracting]);
+  }, [galleryImages.length, isGalleryInView, isUserInteracting, currentImageIndex]);
 
   // Reset interaction state after 3 seconds of no interaction
   const resetInteractionTimer = useRef<NodeJS.Timeout | null>(null);
@@ -357,6 +363,15 @@ const Index = () => {
                 <div className="bg-muted/50 p-2 rounded-2xl">
                   <p className="text-foreground font-medium">Shri. Radheshyamji Hanumandasji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Nanded • <span className="text-blue-600">9422170658</span></p>
+                </div>
+                <div className="mt-3">
+                  <h4 className="text-base font-bold mb-2 text-primary flex items-center gap-2">
+                    <span className="text-lg">🙏</span> Bhuwaji
+                  </h4>
+                  <div className="bg-muted/50 p-2 rounded-2xl">
+                    <p className="text-foreground font-medium">Smt. Kiran Sunilji Toshniwal</p>
+                    <p className="text-xs text-muted-foreground">Nanded • <span className="text-blue-600">94035 26331</span></p>
+                  </div>
                 </div>
               </div>
             </Card>
