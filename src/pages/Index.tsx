@@ -214,7 +214,7 @@ const Index = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-foreground leading-relaxed mb-4">
-                I am a 24-year-old working as Software Developer in Pune, and I'm someone who values empathy, family, and continuous growth. I enjoy an active lifestyle whether it's playing badminton, staying fit, or taking spontaneous bike trips and travel breaks to explore new places. Music is a big part of my day, and I love learning new things that help me grow personally and professionally. My family means a lot to me, and their support has shaped the grounded, respectful person I am today. I hope to build a future with someone who is caring, family-oriented, values financial stability, and is equally driven toward growth in her professional journey.
+                I am a 24 year old working as Software Developer in Pune, and I'm someone who values empathy, family, and continuous growth. I enjoy an active lifestyle whether it's playing badminton, staying fit, or taking spontaneous bike trips and travel breaks to explore new places. Music is a big part of my day, and I love learning new things that help me grow personally and professionally. My family means a lot to me, and their support has shaped the grounded, respectful person I am today. I hope to build a future with someone who is caring, family oriented, values financial stability, and is equally driven toward growth in her professional journey.
               </p>
             </div>
           </div>
