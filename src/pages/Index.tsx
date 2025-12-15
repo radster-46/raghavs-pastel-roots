@@ -443,7 +443,7 @@ const Index = () => {
                   <p className="text-xs text-muted-foreground">Parbhani</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
-                  <p className="text-foreground font-semibold">Mayur General Stores</p>
+                  <p className="text-foreground font-semibold">ShriKrupa General Stores</p>
                   <p className="text-xs text-muted-foreground">Ahmedpur</p>
                 </div>
                 <div className="bg-muted/50 p-2 rounded-2xl">
