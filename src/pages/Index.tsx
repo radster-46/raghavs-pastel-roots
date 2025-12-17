@@ -488,7 +488,7 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="relative fade-in-section">
             <div 
-              className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl shadow-elegant"
+              className="relative w-full aspect-[4/5] overflow-hidden rounded-3xl shadow-elegant"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
