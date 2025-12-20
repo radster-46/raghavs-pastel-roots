@@ -399,6 +399,14 @@ const Index = () => {
                   <p className="text-foreground font-medium">Shri. Pawan Ghanshyamji Bhutada</p>
                   <p className="text-xs text-muted-foreground">Business, Ahmedpur</p>
                 </div>
+                <div className="bg-muted/50 p-2 rounded-2xl">
+                  <p className="text-foreground font-medium">Sau. Bhagyashree Rahulji Bajaj</p>
+                  <p className="text-xs text-muted-foreground">Housewife, Latur</p>
+                </div>
+                <div className="bg-muted/50 p-2 rounded-2xl">
+                  <p className="text-foreground font-medium">Sau. Pooja Nikhilji Bajaj</p>
+                  <p className="text-xs text-muted-foreground">Housewife, Latur</p>
+                </div>
               </div>
             </Card>
 
