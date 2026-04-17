@@ -35,7 +35,13 @@ posthog.init("phc_chP3JzWbPYs8btrHx7jqbzSczwzi7oeCjtLYtRbgoeB", {
           org: data.org,
         };
         ph.register(locationProps);
-        ph.capture("location_detected", locationProps);
+        // Also attach to the person profile so Persons view & cohorts can filter by location
+        ph.setPersonPropertiesForFlags(locationProps);
+        ph.capture("location_detected", {
+          ...locationProps,
+          $set: locationProps,        // sets person properties
+          $set_once: locationProps,   // preserves first-seen location
+        });
         console.log("[PostHog] Location tracked:", data.city, data.country_name);
       }
     } catch (err) {
