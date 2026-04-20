@@ -228,19 +228,7 @@ const Index = () => {
               {bioData.map((item, index) => <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-2xl border border-border hover:border-primary/40 hover:shadow-soft transition-all duration-300">
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{item.label}</p>
-                    {item.isPhone ? <div className="flex items-center gap-2">
-                        <a href={`tel:${item.value}`} className="font-semibold text-blue-600">{item.value}</a>
-                        <button onClick={() => {
-                          navigator.clipboard.writeText(item.value);
-                          const btn = document.getElementById(`copy-btn-${index}`);
-                          if (btn) {
-                            btn.textContent = "Copied!";
-                            setTimeout(() => btn.textContent = "Copy", 2000);
-                          }
-                        }} id={`copy-btn-${index}`} className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">
-                          Copy
-                        </button>
-                      </div> : <p className="font-semibold text-foreground">{item.value}</p>}
+{item.isPhone ? <a href={`tel:${item.value}`} className="font-semibold text-blue-600">{item.value}</a> : <p className="font-semibold text-foreground">{item.value}</p>}
                   </div>
                 </div>)}
             </div>
