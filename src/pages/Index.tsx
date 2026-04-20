@@ -131,7 +131,8 @@ const Index = () => {
     { label: "Birth Date & Time", value: "05 Oct 2001, 07:10 AM" },
     { label: "Birth Place", value: "Nanded, Maharashtra" },
     { label: "Height", value: "5 ft 6 in" },
-    { label: "Blood Group", value: "O Negative" }
+    { label: "Blood Group", value: "O Negative" },
+    { label: "Ph. No.", value: "9370455853", isPhone: true, isCopiable: true }
   ];
   const timeline = [
     { year: "2001", event: "Born in Nanded" },
