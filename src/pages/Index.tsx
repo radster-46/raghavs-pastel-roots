@@ -13,7 +13,7 @@ import gallery7 from "@/assets/gallery/8.jpg";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const autoScrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryInView, setIsGalleryInView] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
@@ -83,7 +83,7 @@ const Index = () => {
   }, [galleryImages.length, isGalleryInView, isUserInteracting, currentImageIndex]);
 
   // Reset interaction state after 3 seconds of no interaction
-  const resetInteractionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resetInteractionTimer = useRef<NodeJS.Timeout | null>(null);
   
   const handleManualNavigation = (newIndex: number) => {
     setIsUserInteracting(true);
@@ -131,8 +131,7 @@ const Index = () => {
     { label: "Birth Date & Time", value: "05 Oct 2001, 07:10 AM" },
     { label: "Birth Place", value: "Nanded, Maharashtra" },
     { label: "Height", value: "5 ft 6 in" },
-    { label: "Blood Group", value: "O Negative" },
-    { label: "Ph. No.", value: "9370455853", isPhone: true, isCopiable: true }
+    { label: "Blood Group", value: "O Negative" }
   ];
   const timeline = [
     { year: "2001", event: "Born in Nanded" },
@@ -226,9 +225,9 @@ const Index = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               {bioData.map((item, index) => <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-2xl border border-border hover:border-primary/40 hover:shadow-soft transition-all duration-300">
-                  <div className="flex-1 min-w-0">
+                  <div>
                     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{item.label}</p>
-{item.isPhone ? <a href={`tel:${item.value}`} className="font-semibold text-blue-600">{item.value}</a> : <p className="font-semibold text-foreground">{item.value}</p>}
+                    <p className="font-semibold text-foreground">{item.value}</p>
                   </div>
                 </div>)}
             </div>
