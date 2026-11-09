@@ -13,7 +13,7 @@ import gallery7 from "@/assets/gallery/8.jpg";
 const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const autoScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const autoScrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryInView, setIsGalleryInView] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
@@ -83,7 +83,7 @@ const Index = () => {
   }, [galleryImages.length, isGalleryInView, isUserInteracting, currentImageIndex]);
 
   // Reset interaction state after 3 seconds of no interaction
-  const resetInteractionTimer = useRef<NodeJS.Timeout | null>(null);
+  const resetInteractionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   const handleManualNavigation = (newIndex: number) => {
     setIsUserInteracting(true);
