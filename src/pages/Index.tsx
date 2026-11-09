@@ -137,7 +137,8 @@ const Index = () => {
     { year: "2001", event: "Born in Nanded" },
     { year: "2017", event: "Schooling from Nagarjuna Public School, Nanded" },
     { year: "2019-2023", event: "Graduated from PICT, Pune (E&TC)" },
-    { year: "2023-2026", event: "Working as Full Stack Developer at BNY, Pune" }
+    { year: "2023-2026", event: "Working as Full Stack Developer at BNY, Pune" },
+    { year: "Oct 2026-Present", event: "Working as Full Stack Developer at Kotak Mahindra Bank, Hyderabad" }
   ];
   return <div className="min-h-screen festive-background relative overflow-hidden">
       {/* Light, Airy Background Effects - Inspired by floating confetti */}
