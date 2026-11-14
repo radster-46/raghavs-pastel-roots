@@ -137,8 +137,8 @@ const Index = () => {
     { year: "2001", event: "Born in Nanded" },
     { year: "2017", event: "Schooling from Nagarjuna Public School, Nanded" },
     { year: "2019-2023", event: "Graduated from PICT, Pune (E&TC)" },
-    { year: "2023-2026", event: "Working as Full Stack Developer at BNY, Pune" },
-    { year: "Oct 2026-Present", event: "Working as Full Stack Developer at Kotak Mahindra Bank, Hyderabad" }
+    { year: "2023-2026", event: "Full Stack Developer at BNY, Pune" },
+    { year: "Oct 2026-Present", event: "Associate Vice president at Kotak Mahindra Bank, Hyderabad" }
   ];
   return <div className="min-h-screen festive-background relative overflow-hidden">
       {/* Light, Airy Background Effects - Inspired by floating confetti */}
@@ -237,7 +237,7 @@ const Index = () => {
               <div className="p-3 bg-muted/50 rounded-2xl">
                 <div>
                   <p className="text-xs text-muted-foreground">Temporary Address</p>
-                  <p className="font-medium text-sm text-foreground">Mantri Celestia, Financial District, Gachibowli, Hyderabad</p>
+                  <p className="font-medium text-sm text-foreground">Mantri Celestia, Financial District, Gachibowli, Hyderabad, 500032</p>
                 </div>
               </div>
 
